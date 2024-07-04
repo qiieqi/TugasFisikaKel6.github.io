@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Kelompok Kami{% endblock %}
+
+{% block content %}
+<section id="kelompok-kami">
+    <h2>Kelompok Kami</h2>
+    <p>Ini adalah informasi mengenai anggota kelompok kami:</p>
+    <ul>
+        <li>1. Dimas Syifa Aulia</li>
+        <li>2. Dekas Saputra</li>
+        <li>3. Froditus Antares Alloledo</li>
+        <li>4. M. Varel Al Khatran</li>
+        <li>5. Rifqie Farhan Sugiena</li>
+    </ul>
+</section>
+
+<div id="dark-overlay">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <marquee behavior="scroll" direction="up" scrollamount="5" id="members">
+        <p>1. Dimas Syifa Aulia</p>
+        <p>2. Dekas Saputra</p>
+        <p>3. M. Varel Al Khatran</p>
+        <p>4. Rifqie</p>
+    </marquee>
+</div>
+{% endblock %}

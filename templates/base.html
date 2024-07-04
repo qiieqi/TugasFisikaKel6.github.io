@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </head>
+    
+<body>
+    <header>
+        <h1>KELOMPOK 6 | MEDAN MAGNET</h1>
+        <div class="marquee">
+            <p>Anggota: 1. Dimas Syifa Aulia, 2. Dekas Saputra, 3. Froditus Antares Alloledo, 4. M. Varel Al Khatran S., 5. Rifqie Farhan sugiena</p>
+        </div>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+        <a href="{{ url_for('materi') }}" class="{% if request.endpoint == 'materi' %}active{% endif %}">Materi</a>
+        <a href="{{ url_for('contoh_soal') }}" class="{% if request.endpoint == 'contoh_soal' %}active{% endif %}">Contoh Soal</a>
+        <a href="{{ url_for('kelompok_kami') }}" class="{% if request.endpoint == 'kelompok_kami' %}active{% endif %}">Kelompok Kami</a>
+    </nav>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    <footer>
+        &copy; 2024 KELOMPOK 6 | MEDAN MAGNET
+    </footer>
+    
+    <script>
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            var footer = document.querySelector("footer");
+            // Display footer when scrolled to bottom of the page
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                footer.style.display = "block";
+            } else {
+                footer.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

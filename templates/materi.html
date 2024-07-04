@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}Materi{% endblock %}
+
+{% block content %}
+<h2>Materi Medan Magnet: Konsep, Hukum, dan Aplikasi</h2>
+<br>
+<br>
+<h3>Penjelasan</h3>
+<p>Medan magnet adalah salah satu aspek penting dalam fisika yang mempengaruhi berbagai fenomena alam dan teknologi. Berikut adalah penjelasan yang lebih rinci mengenai medan magnet, sifat-sifatnya, hukum-hukum yang mendasarinya, serta aplikasinya.</p>
+<br>
+<h4>1. Definisi dan Sifat Medan Magnet</h4>
+<p>Medan magnet adalah daerah di sekitar magnet di mana gaya magnet dapat dirasakan. Medan ini dihasilkan oleh muatan listrik yang bergerak atau oleh bahan dengan sifat magnetik tertentu.
+    <ul>
+    <li>Garis-Garis Gaya Magnet: Garis imajiner yang menunjukkan arah medan magnet. Garis-garis ini keluar dari kutub utara dan masuk ke kutub selatan.</li>
+    <li>Arah Medan Magnet: Dapat ditentukan menggunakan jarum kompas yang akan sejajar dengan garis-garis medan magnet.</li>
+    <li>Kuat Medan Magnet (B): Diukur dalam tesla (T). Ini menggambarkan seberapa kuat medan magnet di suatu titik</li>
+    </ul>
+</p>
+<h4>2. Sumber Medan Magnet</h4>
+    <ul>
+    <li>Magnet Permanen: Bahan yang mempertahankan sifat magnetiknya secara permanen.</li>
+    <li>Elektromagnet: Dihasilkan oleh arus listrik yang mengalir melalui konduktor.</li>
+    </ul>
+</p>
+<h4>3. Hukum-Hukum Dasar Medan Magnet</h4>
+
+<ul><li><h5>Hukum Biot-Savart</h5>
+    <p>Menjelaskan bagaimana medan magnet dihasilkan oleh arus listrik. Medan magnet 
+        𝐵 di sekitar kawat lurus yang membawa arus 𝐼 diberikan oleh:</p>
+    <img src ="./static/image/tod.jpg"></li></ul>
+<ul><li><h5>Hukum Ampere: </h5>
+    <p>Menyatakan bahwa integrasi medan magnet 𝐵 di sekitar lintasan tertutup sebanding dengan arus total yang melalui lintasan tersebut:</p>
+    <img src ="./static/image/hukumAmpere.png"></li></ul>
+<ul><li><h5>Hukum Faraday:</h5>
+    <p>Menjelaskan induksi elektromagnetik, yaitu bagaimana perubahan medan magnet dapat menghasilkan arus listrik:</p>
+    <img src ="./static/image/hukumLenz.png"></li></ul>
+<ul><li><h5>Hukum Gauss untuk Magnetisme: </h5>
+    <p>Menunjukkan bahwa medan magnet tidak memiliki monopole (kutub tunggal).</p>
+    <img src ="./static/image/hukumGauzz.png">
+    <p>Integral fluks magnetik di seluruh permukaan tertutup selalu nol, yang berarti garis-garis medan magnet selalu membentuk loop tertutup.</p></li></ul>
+
+<h4>4. Medan Magnet Bumi</h4>
+    <p>Bumi bertindak seperti magnet besar dengan kutub magnetik utara dan selatan. Medan magnet bumi melindungi planet dari angin matahari dan radiasi kosmik. Kutub magnet bumi tidak bertepatan dengan kutub geografis, dan posisinya dapat berubah seiring waktu.
+        
+<h4>5. Persamaan Maxwell</h4>
+    <p>Persamaan Maxwell menggabungkan listrik dan magnetisme dalam teori elektromagnetisme:
+        <ul>
+            <h6>1. Hukum Gauss untuk listrik</h6>
+            <img src ="./static/image/hukumGauzz1.png">
+            <h6>2. Hukum Gauss untuk Magnetisme:</h6>
+            <img src ="./static/image/gauzzMag.png">
+            <h6>3. Hukum Faraday</h6>
+            <img src ="./static/image/hukumfar.png">
+            <h6>4. Hukum Ampere (dengan koreksi Maxwell):</h6>
+            <img src ="./static/image/hukumAmpereMax.png">
+        </ul>
+
+<h4>6. visualisasi Medan Magnet</h4>
+    <p>Bumi bertindak seperti magnet besar dengan kutub magnetik utara dan selatan. Medan magnet bumi melindungi planet dari angin matahari dan radiasi kosmik. Kutub magnet bumi tidak bertepatan dengan kutub geografis, dan posisinya dapat berubah seiring waktu.
+
+<h4>7. Aplikasi Medan Magnet</h4>
+    <ul>
+        <li>kompas: Bahan yang mempertahankan sifat magnetiknya secara permanen.</li>
+        <li>Motor Listrik: Mengubah energi listrik menjadi energi mekanik melalui interaksi medan magnet dan arus listrik.</li>
+        <li>Transformator: Mengubah tegangan arus listrik menggunakan prinsip induksi elektromagnetik.</li>
+        <li>MRI (Magnetic Resonance Imaging): Menggunakan medan magnet kuat untuk menghasilkan gambar detail dari organ dalam tubuh manusia.</li>
+        </ul>
+    </p>
+
+<h4>8. Contoh Soal dan Pembahasan</h4>
+    <p>Contoh Soal 1: Hitung medan magnet di pusat lingkaran berarus.</p>
+    <p>Sebuah kawat melingkar dengan jari-jari 𝑟 membawa arus 𝐼. Hitung kuat medan magnet di pusat lingkaran.</p>
+    <p>Pembahasan:</p>
+    <p>Menggunakan hukum Biot-Savart untuk lingkaran penuh:</p>
+    <img src ="./static/image/contohsoal1.png">
+    <br></p>
+    <p>di mana 𝜇0 ​adalah permeabilitas vakum.</p>
+    <br>
+    <p>Contoh Soal 2: Hitung gaya pada kawat berarus dalam medan magnet. </p>
+
+       <p>Sebuah kawat lurus panjang 𝑙 membawa arus 𝐼 dan ditempatkan dalam medan magnet 𝐵 yang tegak lurus terhadap kawat. Hitung gaya pada kawat tersebut.</p>
+       <p>Pembahasan:</p>
+       <p>Gaya pada kawat dapat dihitung menggunakan rumus:</p>
+       <img src ="./static/image/contohsoal2v1.png">
+       <p>Jika medan magnet tegak lurus terhadap kawat, maka θ=90∘ dan sin 𝜃 = 1 sinθ=1, sehingga:</p>
+       <img src ="./static/image/contohsoal2v2.png">
+       <br></br>
+       <br>
+<h4>Kesimpulan </h4>
+    <p>Medan magnet adalah fenomena fisika yang melibatkan ruang di sekitar magnet di mana gaya magnet dapat dirasakan. Medan ini didefinisikan oleh garis-garis gaya magnet yang keluar dari kutub utara magnet dan masuk ke kutub selatan. Sifat-sifatnya, seperti arah, kekuatan, dan distribusi, dapat dijelaskan melalui hukum-hukum dasar seperti Hukum Biot-Savart, Hukum Ampere, Hukum Faraday, dan Hukum Gauss untuk magnetisme.
+
+        <p>Selain itu, medan magnet bumi adalah fenomena alam yang kompleks yang melindungi planet ini dari angin matahari dan radiasi kosmik. Persamaan Maxwell menyatukan konsep listrik dan magnetisme dalam teori elektromagnetisme, memberikan kerangka kerja yang luas untuk memahami interaksi antara kedua fenomena tersebut.
+        
+        <p>Aplikasi medan magnet sangat luas dan bervariasi, mulai dari teknologi sehari-hari seperti kompas dan transformator hingga aplikasi medis seperti MRI. Pemahaman mendalam tentang medan magnet adalah kunci untuk memahami berbagai fenomena fisika dan teknologi yang bergantung padanya.
+        
+        <p>Dengan memahami konsep ini, kita dapat merancang dan mengembangkan berbagai aplikasi teknologi yang lebih maju dan memahami peran medan magnet dalam fenomena alam yang kompleks. Medan magnet adalah salah satu aspek penting dalam pemahaman kita tentang dunia fisika di sekitar kita.</p>
+
+
+
+
+
+
+        
+
+
+{% endblock %}

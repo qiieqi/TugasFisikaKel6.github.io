@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Contoh Soal Medan Magnet</h2>
+<div id="quizContainer">
+    <form id="quizForm">
+        <div id="questionContainer">
+            <div class="question" data-question="1">
+                <p>1. Apa yang menyebabkan terbentuknya medan magnet?</p>
+                <label><input type="radio" name="q1" value="a"> a. Muatan diam</label><br>
+                <label><input type="radio" name="q1" value="b"> b. Muatan bergerak</label><br>
+                <label><input type="radio" name="q1" value="c"> c. Gravitasi</label><br>
+                <label><input type="radio" name="q1" value="d"> d. Suhu tinggi</label>
+            </div>
+            <div class="question" data-question="2" style="display: none;">
+                <p>2. Medan magnet di sekitar kawat lurus berarus berbentuk?</p>
+                <label><input type="radio" name="q2" value="a"> a. Lurus</label><br>
+                <label><input type="radio" name="q2" value="b"> b. Spiral</label><br>
+                <label><input type="radio" name="q2" value="c"> c. Lingkaran</label><br>
+                <label><input type="radio" name="q2" value="d"> d. Gelombang</label>
+            </div>
+            <div class="question" data-question="3" style="display: none;">
+                <p>3. Satuan medan magnet dalam SI adalah?</p>
+                <label><input type="radio" name="q3" value="a"> a. Tesla</label><br>
+                <label><input type="radio" name="q3" value="b"> b. Newton</label><br>
+                <label><input type="radio" name="q3" value="c"> c. Joule</label><br>
+                <label><input type="radio" name="q3" value="d"> d. Watt</label>
+            </div>
+            <div class="question" data-question="4" style="display: none;">
+                <p>4. Apa fungsi kompas?</p>
+                <label><input type="radio" name="q4" value="a"> a. Mengukur suhu</label><br>
+                <label><input type="radio" name="q4" value="b"> b. Menunjukkan arah</label><br>
+                <label><input type="radio" name="q4" value="c"> c. Mengukur tekanan</label><br>
+                <label><input type="radio" name="q4" value="d"> d. Mengukur kecepatan</label>
+            </div>
+            <div class="question" data-question="5" style="display: none;">
+                <p>5. Apa yang terjadi jika dua kutub magnet sejenis didekatkan?</p>
+                <label><input type="radio" name="q5" value="a"> a. Saling tarik menarik</label><br>
+                <label><input type="radio" name="q5" value="b"> b. Saling tolak menolak</label><br>
+                <label><input type="radio" name="q5" value="c"> c. Tidak ada efek</label><br>
+                <label><input type="radio" name="q5" value="d"> d. Saling melilit</label>
+            </div>
+            <div class="question" data-question="6" style="display: none;">
+                <p>6. Apa yang dimaksud dengan garis gaya magnet?</p>
+                <label><input type="radio" name="q6" value="a"> a. Garis imajiner yang menunjukkan arah medan magnet</label><br>
+                <label><input type="radio" name="q6" value="b"> b. Garis nyata yang tampak oleh mata</label><br>
+                <label><input type="radio" name="q6" value="c"> c. Jalur arus listrik</label><br>
+                <label><input type="radio" name="q6" value="d"> d. Garis medan listrik</label>
+            </div>
+        </div>
+        <div id="navigation">
+            <button type="button" id="prevButton" onclick="prevQuestion()">Kembali</button>
+            <button type="button" id="nextButton" onclick="nextQuestion()">Selanjutnya</button>
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        </div>
+    </form>
+
+    <div id="result" style="display: none;">
+        <h3>Nilai Anda: <span id="score"></span>%</h3>
+        <p>Benar: <span id="correct"></span></p>
+        <p>Salah: <span id="wrong"></span></p>
+        <button onclick="tryAgain()">Coba Lagi</button>
+        <button onclick="showAnswers()">Materi</button>
+    </div>
+</div>
+
+<script>
+    const correctAnswers = {
+        q1: 'b',
+        q2: 'c',
+        q3: 'a',
+        q4: 'b',
+        q5: 'b',
+        q6: 'a'
+    };
+
+    let currentQuestion = 1;
+    const totalQuestions = Object.keys(correctAnswers).length;
+
+    function showQuestion(number) {
+        const questions = document.querySelectorAll('.question');
+        questions.forEach(question => {
+            question.style.display = 'none';
+        });
+        document.querySelector(`.question[data-question="${number}"]`).style.display = 'block';
+    }
+
+    function updateNavigation() {
+        if (currentQuestion === 1) {
+            document.getElementById('prevButton').disabled = true;
+        } else {
+            document.getElementById('prevButton').disabled = false;
+        }
+
+        if (currentQuestion === totalQuestions) {
+            document.getElementById('nextButton').style.display = 'none';
+        } else {
+            document.getElementById('nextButton').style.display = 'inline-block';
+        }
+    }
+
+    function nextQuestion() {
+        if (currentQuestion < totalQuestions) {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+            updateNavigation();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentQuestion > 1) {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+            updateNavigation();
+        }
+    }
+
+    function submitQuiz() {
+        const form = document.getElementById('quizForm');
+        let score = 0;
+        let correct = 0;
+        let wrong = 0;
+
+        for (let key in correctAnswers) {
+            const answer = form.elements[key].value;
+            if (answer === correctAnswers[key]) {
+                score += 1;
+                correct += 1;
+            } else {
+                wrong += 1;
+            }
+        }
+
+        let percentage = (score / totalQuestions) * 100;
+
+        document.getElementById('score').textContent = percentage.toFixed(2);
+        document.getElementById('correct').textContent = correct;
+        document.getElementById('wrong').textContent = wrong;
+        document.getElementById('quizForm').style.display = 'none';
+        document.getElementById('result').style.display = 'block';
+    }
+
+    function tryAgain() {
+        document.getElementById('quizForm').reset();
+        document.querySelectorAll('.question input[type="radio"]').forEach(input => {
+            input.checked = false;
+            input.parentElement.style.color = '';
+        });
+        document.getElementById('quizForm').style.display = 'block';
+        document.getElementById('result').style.display = 'none';
+        currentQuestion = 1;
+        showQuestion(currentQuestion);
+        updateNavigation();
+    }
+
+    function showAnswers() {
+        const questions = document.querySelectorAll('.question');
+        questions.forEach((question, index) => {
+            const number = index + 1;
+            const correctAnswer = correctAnswers[`q${number}`];
+            const options = question.querySelectorAll('input[type="radio"]');
+            options.forEach(option => {
+                if (option.value === correctAnswer) {
+                    option.parentElement.style.color = 'green';
+                } else {
+                    option.parentElement.style.color = 'red';
+                }
+                option.disabled = true;
+            });
+        });
+        document.getElementById('quizForm').style.display = 'block';
+        document.getElementById('result').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showQuestion(currentQuestion);
+        updateNavigation();
+    });
+</script>
+{% endblock %}
